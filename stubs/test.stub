@@ -1,0 +1,35 @@
+<?php
+
+use App\Solutions\Year{{ year }}\Day{{ day }};
+
+test('pt1', function () {
+    $expected = 0;
+    $example = prepareInput(<<<'EOT'
+
+    EOT);
+
+    $actual = Day{{ day }}::pt1($example);
+
+    if ($actual === null) {
+        test()->skip();
+    }
+
+    expect($actual)
+        ->toBe($expected);
+});
+
+test('pt2', function () {
+    $expected = 0;
+    $example = prepareInput(<<<'EOT'
+
+    EOT);
+
+    $actual = Day{{ day }}::pt2($example);
+
+    if ($actual === null) {
+        test()->skip();
+    }
+
+    expect($actual)
+        ->toBe(0);
+});
