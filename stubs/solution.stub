@@ -1,7 +1,9 @@
 <?php namespace App\Solutions\Year{{ year }};
 
 class Day{{ day }} {
-	public static function pt1(string $input) {}
+	public static function pt1(string $input) {
+	}
 
-	public static function pt2(string $input) {}
+	public static function pt2(string $input) {
+	}
 }

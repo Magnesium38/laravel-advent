@@ -11,7 +11,7 @@ test('pt1', function () {
     $actual = Day{{ day }}::pt1($example);
 
     if ($actual === null) {
-        test()->skip();
+        test()->markTestSkipped();
     }
 
     expect($actual)
@@ -27,7 +27,7 @@ test('pt2', function () {
     $actual = Day{{ day }}::pt2($example);
 
     if ($actual === null) {
-        test()->skip();
+        test()->markTestSkipped();
     }
 
     expect($actual)
