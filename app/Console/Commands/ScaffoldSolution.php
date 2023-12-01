@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class ScaffoldSolution extends Command {
 	protected $signature = 'advent:scaffold {day?} {year?}';
@@ -18,16 +19,25 @@ class ScaffoldSolution extends Command {
 
 		$this->copyStub($solutionPath, $solutionStub, $year, $day);
 		$this->copyStub($testPath, $testStub, $year, $day);
+
+		Artisan::call('advent:download', [
+			'day' => $day,
+			'year' => $year,
+		]);
 	}
 
 	protected function copyStub($realPath, $stubPath, $year, $day) {
 		if (!file_exists($realPath)) {
-			mkdir(
-				str($realPath)
-					->beforeLast('/')
-					->value(),
-				recursive: true,
-			);
+			$directory = str($realPath)
+				->beforeLast('/')
+				->value();
+
+			if (!file_exists($directory)) {
+				mkdir(
+					$directory,
+					recursive: true,
+				);
+			}
 
 			file_put_contents(
 				$realPath,
